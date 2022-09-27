@@ -6,10 +6,22 @@
 .order-summary {
     background: rgba(255, 153, 0, 0.3);
     height: 95vh;
+    padding: 20px;
+    color: #1C2B35;
+    position: sticky;
+    top: 0;
 }
 .products-container {
     margin: 100px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-row-gap: 30px;
+    /* padding: 10px; */
+}
+
+.order-summary .title {
+text-align: center;
+text-decoration: underline;
+font-weight: 800;
+
 }

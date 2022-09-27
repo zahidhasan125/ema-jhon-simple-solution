@@ -43,6 +43,10 @@
     background: orange;
 }
 
+.addToCart .add-to-cart {
+    margin-right: 5px;
+}
+
 h2 {
     margin: 0;
 }
