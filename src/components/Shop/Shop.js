@@ -22,7 +22,7 @@ const Shop = () => {
                console.log(id);
             
         }
-    }, [])
+    }, [products])
     
     const handleAddToCart = (product) => {
         const newCart = [...cart, product];
