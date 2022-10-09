@@ -10,7 +10,14 @@
     align-items: center;
     /* justify-content: ; */
     margin: 20px;
-    padding: 20px;
+    padding: 0 20px;
+}
+.review-details > h4 {
+    text-decoration: underline;
+}
+.price{
+    color: #EB5757;
+    text-decoration: underline;
 }
 
 .review-details-container{
@@ -22,4 +29,18 @@
 }
 .review-details{
     line-height: .3em;
+}
+.remove-icon{
+    color: #EB5757;
+    font-size: 2em;
+    padding: 15px;
+}
+.button-area{
+    border: none;
+    background-color: rgba(235, 87, 87, 0.3);
+    border-radius: 50%;
+    cursor: pointer;
+}
+.button-area:hover{
+    background-color: rgba(235, 87, 87, 0.5);
 }
