@@ -1,0 +1,20 @@
+.cart-btn *{
+    padding: 8px;
+    width: 100%;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1.1em;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.clear-btn {
+    background-color: #FF3030;
+}
+
+
+.order-btn {
+    background-color: #FF9900;
+}

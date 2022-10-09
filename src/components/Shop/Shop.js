@@ -1,33 +1,48 @@
 import React, { useEffect, useState } from 'react';
+import { useLoaderData } from 'react-router-dom';
 import { addToDb, getStoredCart } from '../../utilities/fakedb';
-import Order from '../Order/Order';
+import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 import './Shop.css';
 
 const Shop = () => {
     
-    const [products, setProducts] = useState([]);
+    const products = useLoaderData();
     const [cart, setCart] = useState([]);
-
-    useEffect(() => {
-        fetch('products.json')
-            .then(res => res.json())
-            .then(data => setProducts(data))
-        
-    }, []);
     
     useEffect(() => {
         const storedCart = getStoredCart();
+        const savedCart = [];
         for (const id in storedCart) {
-               console.log(id);
-            
+            const addedProduct = products.find(product => product.id === id);
+            if (addedProduct) {
+                const quantity = storedCart[id];
+                addedProduct.quantity = quantity;
+                savedCart.push(addedProduct);
+            }
+            setCart(savedCart);
         }
     }, [products])
     
-    const handleAddToCart = (product) => {
-        const newCart = [...cart, product];
+    const handleAddToCart = (selectedProduct) => {
+
+        // console.log(selectedProduct);
+        let newCart = [];
+        //find if the selectedProduct exist in the cart
+        const exist = cart.find(product => product.id === selectedProduct.id)
+        // if not exist means, selectedProduct adding for first time. 
+        if (!exist) {
+            selectedProduct.quantity = 1;
+            newCart = [...cart, selectedProduct]
+        }
+        //if exist means, you have to increase the quantity of the selected product
+        else {
+            const rest = cart.filter(product => product.id !== selectedProduct.id);
+            selectedProduct.quantity = selectedProduct.quantity + 1;
+            newCart = [...rest, selectedProduct];
+        }
         setCart(newCart);
-        addToDb(product.id)
+        addToDb(selectedProduct.id)
     }
 
     return (
@@ -43,7 +58,7 @@ const Shop = () => {
                 
             </div>
             <div className='cart'>
-                <Order cart={cart}></Order>
+                <Cart cart={cart}></Cart>
             </div>
         </div>
     );
