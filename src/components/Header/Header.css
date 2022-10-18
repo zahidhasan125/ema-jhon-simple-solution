@@ -5,12 +5,12 @@
     align-items: center;
     justify-content: space-between;
 }
-a {
+.navbar a {
     text-decoration: none;
     color: #FFFFFF;
     margin-left: 32px;
 }
 
-a:hover {
+.navbar a:hover {
     color: orange;
 }
