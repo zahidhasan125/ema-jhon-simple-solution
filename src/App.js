@@ -4,8 +4,10 @@ import About from './components/About/About';
 import Inventory from './components/Inventory/Inventory';
 import Login from './components/Login/Login';
 import Orders from './components/Orders/Orders';
+import Shipping from './components/Shipping/Shipping';
 import Shop from './components/Shop/Shop';
 import SignUp from './components/SignUp/SignUp';
+import RequireAuth from './firebase/routes/RequireAuth';
 import Main from './layouts/Main';
 import { productAndCartLoader } from './loaders/productAndCartLoader';
 
@@ -32,7 +34,7 @@ function App() {
         },
         {
           path: 'inventory',
-          element: <Inventory></Inventory>
+          element: <RequireAuth><Inventory></Inventory></RequireAuth>
         },
         {
           path: 'about',
@@ -45,6 +47,10 @@ function App() {
         {
           path: 'signup',
           element: <SignUp></SignUp>
+        },
+        {
+          path: 'shipping',
+          element: <RequireAuth><Shipping></Shipping></RequireAuth>
         }
       ],
       errorElement: <div>Sorry 404</div>

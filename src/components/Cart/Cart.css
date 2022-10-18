@@ -10,10 +10,14 @@
     cursor: pointer;
 }
 
+
 .clear-btn {
     background-color: #FF3030;
 }
 
+.cart a, .cart-container a {
+    padding-left: 0;
+}
 
 .order-btn {
     background-color: #FF9900;
